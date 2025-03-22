@@ -32,26 +32,27 @@ public class AdditionSubtractionTest {
         }
         log.debug("count: {}", room.getCount());
     }
+
+    private static class Room {
+        private int count = 0;
+
+        public void increment() {
+            synchronized (this) {
+                count++;
+            }
+        }
+
+        public void decrement() {
+            synchronized (this) {
+                count--;
+            }
+        }
+
+        public int getCount() {
+            synchronized (this) {
+                return count;
+            }
+        }
+    }
 }
 
-class Room {
-    private int count = 0;
-
-    public void increment() {
-        synchronized (this) {
-            count++;
-        }
-    }
-
-    public void decrement() {
-        synchronized (this) {
-            count--;
-        }
-    }
-
-    public int getCount() {
-        synchronized (this) {
-            return count;
-        }
-    }
-}

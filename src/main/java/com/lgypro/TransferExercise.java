@@ -82,6 +82,9 @@ public class TransferExercise {
                             name, myBalance, target.getName(), otherBalance,
                             target.getName(), amount,
                             name, balance, target.getName(), target.getBalance());
+                } else {
+                    log.debug("{} have {}, {} have {}, amount is {}, but {} balance is not enough",
+                            name, balance, target.getName(), target.getBalance(), amount, name);
                 }
             }
         }
